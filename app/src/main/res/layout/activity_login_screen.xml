@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.mj.ecomm.login.LoginViewModel" />
+        
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.LoginScreen">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_text_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+
+        android:ems="10"
+        android:text = "@={viewmodel.userMobileNumber}"
+        android:hint="Enter the Mobile Number"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/editTextTextPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Enter the Password"
+        android:text = "@={viewmodel.userPassword}"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/et_text_phone"
+        app:layout_constraintStart_toStartOf="@+id/et_text_phone"
+        app:layout_constraintTop_toBottomOf="@+id/et_text_phone" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Submit"
+        android:clickable="@{viewmodel.userMobileNumber.toString().length()>0}"
+        android:onClick="@{viewmodel::onSubmit}"
+        app:layout_constraintEnd_toEndOf="@+id/et_text_phone"
+        app:layout_constraintStart_toStartOf="@+id/et_text_phone"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
